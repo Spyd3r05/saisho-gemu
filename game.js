@@ -58,6 +58,30 @@ class mainScene {
     }
   }
 
+  //game over method
+  gameOver() {
+    this.gameActive = false;
+    this.monster.body.setVelocity(0);
+    this.monster.setIm;
+    this.warrior.body.setVelocity(0);
+    this.warrior.setIm;
+    this.add
+      .text(300, 200, "GAME OVER", {
+        fontSize: "48px",
+        fill: "#ff0000",
+        align: "center",
+      })
+      .setOrigin(0.5);
+
+    //show final score
+    this.add
+      .text(300, 260, "Final Score: " + this.score, {
+        fontSize: "32px",
+        fill: "#ffffff",
+      })
+      .setOrigin(0.5);
+  }
+
   hit() {
     // Get the monster's half‑width and half‑height (based on its scaled size)
     const halfWidth = this.monster.displayWidth / 2;
@@ -87,6 +111,8 @@ class mainScene {
   }
 
   update() {
+    //only allow movement if game is active
+    if (!this.gameActive) return;
     if (this.physics.overlap(this.monster, this.warrior)) {
       this.hit();
     }
