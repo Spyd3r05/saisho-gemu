@@ -2,9 +2,12 @@ class mainScene {
   preload() {
     this.load.image("warrior", "assets/warrior.png");
     this.load.image("monster", "assets/monster.png");
+    this.load.image("background", "assets/background.jpg");
   }
 
   create() {
+    this.add.image(400, 220, "background").setScale(1.2);
+
     this.warrior = this.physics.add.sprite(100, 100, "warrior");
     this.warrior.setScale(0.5);
     this.warrior.setCollideWorldBounds(true);
@@ -70,9 +73,8 @@ class mainScene {
 }
 
 new Phaser.Game({
-  width: 700,
-  height: 400,
-  backgroundColor: "#225103ff",
+  width: 800,
+  height: 600,
   scene: mainScene,
   physics: { default: "arcade" },
   parent: "game",
