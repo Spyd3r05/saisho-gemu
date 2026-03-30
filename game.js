@@ -75,6 +75,14 @@ class mainScene {
     if (this.arrow.down.isDown) {
       this.warrior.y += 2;
     }
+
+    //change the monster direction occassionally
+    if (Phaser.Math.Between(0, 120) === 0) {
+      this.monster.setVelocity(
+        Phaser.Math.Between(-100, 100),
+        Phaser.Math.Between(-100, 100),
+      );
+    }
   }
 }
 
