@@ -22,6 +22,12 @@ class mainScene {
     });
 
     this.arrow = this.input.keyboard.createCursorKeys();
+    this.monster.setVelocity(
+      Phaser.Math.Between(-100, 100),
+      Phaser.Math.Between(-100, 100),
+    );
+    this.monster.setCollideWorldBounds(true);
+    this.monster.setBounce(1);
   }
 
   hit() {
