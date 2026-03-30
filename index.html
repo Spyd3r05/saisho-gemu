@@ -13,17 +13,34 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-color: #222;
         color: #fff;
+        background-color: #222;
         font-family: sans-serif;
       }
+      h1 {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-size: 24px;
+      }
+      h1:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin-top: 10px;
+        background: #fff;
+      }
+
       #game {
         border: 2px solid #fff;
       }
     </style>
   </head>
   <body>
-    <h1>Phaser Game</h1>
+    <h1>Kill the Monster</h1>
     <div id="game"></div>
     <p>Use the arrow keys to move the warrior to kill the monster.</p>
   </body>

@@ -6,7 +6,7 @@ class mainScene {
   }
 
   create() {
-    this.add.image(400, 220, "background").setScale(1.2);
+    this.add.image(400, 220, "background").setScale(1.4);
 
     this.warrior = this.physics.add.sprite(100, 100, "warrior");
     this.warrior.setScale(0.5);
@@ -28,6 +28,34 @@ class mainScene {
     );
     this.monster.setCollideWorldBounds(true);
     this.monster.setBounce(1);
+
+    //timer variables
+    this.timeLeft = 30;
+    this.timerText = this.add.text(600, 16, "Time: " + this.timeLeft, {
+      fontSize: "24px",
+      fill: "#ffffffff",
+    });
+    //add timer event that decreases every second
+    this.timeEvent = this.time.addEvent({
+      delay: 1000,
+      callback: this.updateTimer,
+      callbackScope: this,
+      loop: true,
+    });
+
+    //check if game is still running
+    this.gameActive = true;
+  }
+
+  //update timer method
+  updateTimer() {
+    if (this.gameActive) {
+      this.timeLeft--;
+      this.timerText.setText("Time: " + this.timeLeft);
+      if (this.timeLeft <= 0) {
+        this.gameOver();
+      }
+    }
   }
 
   hit() {
